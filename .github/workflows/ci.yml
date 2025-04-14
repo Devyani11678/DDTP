@@ -21,25 +21,25 @@ jobs:
       with:
         node-version: '22'
 
-    - name: Initialize Node Project and Install Dependencies
+    - name: Install Newman & Reporters
       run: |
         npm init -y
         npm install newman newman-reporter-html newman-reporter-json
 
-    - name: Run API Tests with Newman
+    - name: Run Newman Tests with HTML & JSON Reporters
       run: |
-        npx newman run .github/workflows/PetstoreDT.postman_collection.json `
-          -e .github/workflows/PetstoreDT.postman_environment.json `
-          --iteration-data .github/workflows/data.csv `
-          --reporters json,html `
-          --reporter-html-export newman-report.html `
-          --reporter-json-export newman-report.json `
+        npx newman run ".github/workflows/PetstoreDT.postman_collection.json" ^
+          -e ".github/workflows/PetstoreDT.postman_environment.json" ^
+          --iteration-data ".github/workflows/data.csv" ^
+          --reporters html,json ^
+          --reporter-html-export "newman-report.html" ^
+          --reporter-json-export "newman-report.json" ^
           --verbose
 
-    - name: Show JSON Output in Logs
+    - name: Output Newman JSON Results to Console
       run: type newman-report.json
 
-    - name: Upload Newman HTML Report
+    - name: Upload HTML Report as Artifact
       uses: actions/upload-artifact@v4
       with:
         name: postman-test-report
