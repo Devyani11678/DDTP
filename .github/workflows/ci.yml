@@ -16,17 +16,28 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Install Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '22'
 
-    - name: Install Newman & HTML Reporter
-      run: npm install -g newman newman-reporter-html
+    - name: Initialize Node Project and Install Dependencies
+      run: |
+        npm init -y
+        npm install newman newman-reporter-html newman-reporter-json
 
     - name: Run API Tests with Newman
       run: |
-        npx newman run .github/workflows/PetstoreDT.postman_collection.json -e .github/workflows/PetstoreDT.postman_environment.json --iteration-data .github/workflows/data.csv --reporters json,html --reporter-html-export newman-report.html --reporter-json-export newman-report.json --verbose
+        npx newman run .github/workflows/PetstoreDT.postman_collection.json `
+          -e .github/workflows/PetstoreDT.postman_environment.json `
+          --iteration-data .github/workflows/data.csv `
+          --reporters json,html `
+          --reporter-html-export newman-report.html `
+          --reporter-json-export newman-report.json `
+          --verbose
+
+    - name: Show JSON Output in Logs
+      run: type newman-report.json
 
     - name: Upload Newman HTML Report
       uses: actions/upload-artifact@v4
