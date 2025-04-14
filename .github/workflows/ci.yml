@@ -28,13 +28,13 @@ jobs:
 
     - name: Run Newman Tests with HTML & JSON Reporters
       run: |
-        npx newman run ".github/workflows/PetstoreDT.postman_collection.json" 
-          -e ".github/workflows/PetstoreDT.postman_environment.json" 
-          --iteration-data ".github/workflows/data.csv" 
-          --reporters html,json 
-          --reporter-html-export "newman-report.html" 
-          --reporter-json-export "newman-report.json" 
-          --verbose
+        npx newman run ".github/workflows/PetstoreDT.postman_collection.json" `
+        -e ".github/workflows/PetstoreDT.postman_environment.json" `
+        --iteration-data ".github/workflows/data.csv" `
+        --reporters html,json `
+        --reporter-html-export "newman-report.html" `
+        --reporter-json-export "newman-report.json" `
+        --verbose
 
     - name: Output Newman JSON Results to Console
       run: type newman-report.json
