@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 0 * * *"  #  Runs every day at midnight UTC
+    - cron: "0 0 * * *"  # Runs every day at midnight UTC
   workflow_dispatch:  # Allows manual execution from GitHub UI
 
 jobs:
@@ -27,13 +27,14 @@ jobs:
         npm install newman newman-reporter-html newman-reporter-json
 
     - name: Run Newman Tests with HTML & JSON Reporters
+      shell: cmd
       run: |
-        npx newman run ".github/workflows/PetstoreDT.postman_collection.json" `
-        -e ".github/workflows/PetstoreDT.postman_environment.json" `
-        --iteration-data ".github/workflows/data.csv" `
-        --reporters html,json `
-        --reporter-html-export "newman-report.html" `
-        --reporter-json-export "newman-report.json" `
+        npx newman run ".github/workflows/PetstoreDT.postman_collection.json" ^
+        -e ".github/workflows/PetstoreDT.postman_environment.json" ^
+        --iteration-data ".github/workflows/data.csv" ^
+        --reporters html,json ^
+        --reporter-html-export "newman-report.html" ^
+        --reporter-json-export "newman-report.json" ^
         --verbose
 
     - name: Output Newman JSON Results to Console
