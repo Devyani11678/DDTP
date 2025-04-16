@@ -27,8 +27,8 @@ jobs:
         npm install newman newman-reporter-html
 
     - name: Wait for 3 seconds
-      run: timeout /t 3 /nobreak
-      shell: cmd
+      run: Start-Sleep -Seconds 3
+      shell: pwsh
 
     - name: Run Newman Tests with HTML Reporter and CLI Output
       shell: cmd
