@@ -26,8 +26,8 @@ jobs:
         npm init -y
         npm install newman newman-reporter-html
 
-    - name: Wait for 3 seconds
-      run: Start-Sleep -Seconds 3
+    - name: Wait for 5 seconds
+      run: Start-Sleep -Seconds 5
       shell: pwsh
 
     - name: Run Newman Tests with HTML Reporter and CLI Output
