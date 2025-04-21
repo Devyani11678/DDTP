@@ -31,9 +31,6 @@
 							"//});\r",
 							"//console.log(response)\r",
 							"// Add delay of 3 seconds (3000 milliseconds)\r",
-							"const delay = ms => new Promise(resolve => setTimeout(resolve, ms));\r",
-							"await delay(3000);\r",
-							"\r",
 							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -46,11 +43,11 @@
 							"let response=pm.response.json();\r",
 							"//This part gets the id from the actual API response\r",
 							"pm.environment.unset(\"Id\");\r",
-							"pm.environment.set(\"Id\", response.id); \r",
+							"pm.environment.set(\"Id\", Number(response.id)); \r",
 							"console.log(response.id)\r",
 							"\r",
 							"pm.environment.unset(\"PetId\");\r",
-							"pm.environment.set(\"PetId\", response.petId); \r",
+							"pm.environment.set(\"PetId\", Number(response.petId)); \r",
 							"console.log(response.petId)\r",
 							"\r",
 							"pm.environment.unset(\"Quantity\");\r",
@@ -86,7 +83,9 @@
 							"\r",
 							"pm.test(\"Status matches\", function () {\r",
 							"    pm.expect(response.status).to.eql(s);\r",
-							"});"
+							"});\r",
+							"\r",
+							"console.log(\"completed\")"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -244,14 +243,13 @@
 					"script": {
 						"exec": [
 							"// Add delay of 3 seconds (3000 milliseconds)\r",
-							"const delay = ms => new Promise(resolve => setTimeout(resolve, ms));\r",
-							"await delay(3000);\r",
 							"\r",
 							"\r",
-							"console.log(\"Fetching with ID:\", pm.environment.get(\"Id\"));\r",
-							"console.log(\"Fetching petid : \", pm.environment.get(\"PetId\"));\r",
+							"console.log(\"Fetching with ID:\", Number(pm.environment.get(\"Id\")));\r",
+							"console.log(\"Fetching petid : \", Number(pm.environment.get(\"PetId\")));\r",
 							"console.log(\"Fetching quantity : \",pm.environment.get(\"Quantity\"));\r",
-							"console.log(\"Fetching status : \",pm.environment.get(\"Status\"));"
+							"console.log(\"Fetching status : \",pm.environment.get(\"Status\"));\r",
+							"console.log(\"completed\")"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -387,15 +385,15 @@
 					"script": {
 						"exec": [
 							"// Add delay of 3 seconds (3000 milliseconds)\r",
-							"const delay = ms => new Promise(resolve => setTimeout(resolve, ms));\r",
-							"await delay(3000);\r",
 							"\r",
 							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"console.log(\"Fetching with ID:\", pm.environment.get(\"Id\"));"
+							"console.log(\"Fetching with ID:\", pm.environment.get(\"Id\"));\r",
+							"\r",
+							"console.log(\"completed\")"
 						],
 						"type": "text/javascript",
 						"packages": {}
