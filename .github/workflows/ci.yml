@@ -24,7 +24,7 @@ jobs:
     - name: Install Newman & HTML Reporter
       run: |
         npm init -y
-        npm install newman newman-reporter-html
+        npm install newman newman-reporter-htmlextra
 
     - name: Wait for 5 seconds
       run: Start-Sleep -Seconds 5
@@ -36,8 +36,8 @@ jobs:
         npx newman run ".github/workflows/PetstoreDT.postman_collection.json" ^
         -e ".github/workflows/PetstoreDT.postman_environment.json" ^
         --iteration-data ".github/workflows/data.csv" ^
-        --reporters cli,html ^
-        --reporter-html-export "newman-report.html" ^
+        --reporters cli,htmlextra ^
+        --reporter-htmlextra-export "newman-report.html" ^
         --verbose
 
     - name: Upload HTML Report as Artifact
