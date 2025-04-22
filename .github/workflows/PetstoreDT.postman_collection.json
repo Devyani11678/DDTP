@@ -224,6 +224,29 @@
 			]
 		},
 		{
+			"name": "https://postman-echo.com/delay/5 Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/delay/5",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"delay",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Find purchase order by ID",
 			"event": [
 				{
@@ -378,7 +401,7 @@
 			]
 		},
 		{
-			"name": "https://postman-echo.com/delay/5 Copy",
+			"name": "https://postman-echo.com/delay/5 Copy 2",
 			"request": {
 				"auth": {
 					"type": "noauth"
