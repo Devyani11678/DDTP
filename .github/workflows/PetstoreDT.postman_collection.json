@@ -378,6 +378,29 @@
 			]
 		},
 		{
+			"name": "https://postman-echo.com/delay/5 Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/delay/5",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"delay",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete purchase order by ID Copy",
 			"event": [
 				{
@@ -476,6 +499,29 @@
 					"body": ""
 				}
 			]
+		},
+		{
+			"name": "https://postman-echo.com/delay/5",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/delay/5",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"delay",
+						"5"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
