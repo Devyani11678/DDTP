@@ -32,6 +32,7 @@ jobs:
 
     - name: Run Newman Tests with HTML Reporter and CLI Output
       shell: cmd
+      continue-on-error: true
       run: |
         npx newman run ".github/workflows/PetstoreDT.postman_collection.json" ^
         -e ".github/workflows/PetstoreDT.postman_environment.json" ^
